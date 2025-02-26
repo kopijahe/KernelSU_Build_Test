@@ -52,10 +52,8 @@ jobs:
     - name: Setup KernelSU-Next + SUSFS
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
-        rm -rf KernelSU
-        rm -rf drivers/kernelsu
         curl -LSs "https://raw.githubusercontent.com/rifsxd/KernelSU-Next/next-susfs/kernel/setup.sh" | bash -s next-susfs
-        KSU_VERSION_1=$(cd KernelSU && expr $(/usr/bin/git rev-list --count HEAD))
+        KSU_VERSION_1=$(cd KernelSU-Next && expr $(/usr/bin/git rev-list --count HEAD))
         echo "KSUVER_1=$KSU_VERSION_1" >> $GITHUB_ENV
 
     - name: Build kernel with KernelSU-Next + SUSFS
@@ -108,6 +106,8 @@ jobs:
     - name: Setup official KernelSU
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
+        rm -rf KernelSU
+        rm -rf drivers/kernelsu
         curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -s v0.9.5
         KSU_VERSION=$(cd KernelSU && expr $(/usr/bin/git rev-list --count HEAD) + 10200)
         echo "KSUVER=$KSU_VERSION" >> $GITHUB_ENV
