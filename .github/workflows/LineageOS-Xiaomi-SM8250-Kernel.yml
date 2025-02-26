@@ -105,6 +105,3 @@ jobs:
       with:
         name: AK3-LOS22.1-Xiaomi-SM8250-KSUN_${{ env.KSUVER_1 }}-${{ env.BUILD_TIME }}
         path: kernel_workspace/AnyKernel3/*
-
-        name: AK3-LOS22.1-Xiaomi-SM8250-Unofficial-KSU_${{ env.KSUVER_1 }}-${{ env.BUILD_TIME }}
-        path: kernel_workspace/AnyKernel3/*
