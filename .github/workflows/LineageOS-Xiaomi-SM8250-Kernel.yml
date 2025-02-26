@@ -57,7 +57,7 @@ jobs:
         echo "KSUVER_1=$KSU_VERSION_1" >> $GITHUB_ENV
         cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
         git clone https://gitlab.com/simonpunk/susfs4ksu -b kernel-4.19
-        cp ./kernel_patches/include/linux/* $GITHUB_WORKSPACE/kernel_workspace/android-kernel/include/linux/
+        cp $GITHUB_WORKSPACE/kernel_workspace/android-kernel/susfs4ksu/kernel_patches/include/linux/* $GITHUB_WORKSPACE/kernel_workspace/android-kernel/include/linux/
 
     - name: Build kernel with KernelSU-Next + SUSFS
       run: |
